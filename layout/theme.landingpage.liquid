@@ -81,6 +81,8 @@
   {% render 'css-variables' %}
 
   {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
+  {{ 'responsivelp.css' | asset_url | stylesheet_tag: preload: true }}
+  {{ 'custom_lp.css' | asset_url | stylesheet_tag: preload: true }}
 
   <script>
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');

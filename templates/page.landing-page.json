@@ -1,4 +1,82 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "sections": { "main": { "type": "page", "settings": {} } },
-  "order": ["main"]
+  "layout": "theme.landingpage",
+  "sections": {
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {
+        "kicker": "",
+        "kicker_size": 3,
+        "show_title": true,
+        "title_size": 8,
+        "show_content": true,
+        "content_size": 5,
+        "align_text": "text-left",
+        "text_color": "text--neutral",
+        "bg": "palette--light bg--neutral",
+        "width": "wrapper",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "hero_landingpage_eTaXa3": {
+      "type": "hero_landingpage",
+      "blocks": {
+        "content_fa3zCD": {
+          "type": "content",
+          "settings": {
+            "title": "Het Nieuwe Tijdperk van Skiën en Snowboarden",
+            "content": "1080 is een in ‘21/22 nieuw opgericht Oostenrijks free-ride ski-board & outerwear merk. Bedacht en ontwikkeld in Sankt Johann in Tirol door een paar jeugdige free-skiërs en snowboard vrienden. In het hart van een aantal uitdagende jaren, toen de wereld worstelde met de gevolgen van de pandemie, werd een spark van innovatie ontbrand. Uit de tegenspoed ontstond een merk dat de ski- en snowboardindustrie voor altijd zou veranderen: 1080."
+          }
+        },
+        "image_CfetPj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/t-p-img2-1.png",
+            "position_x": 56,
+            "position_y": 0
+          }
+        },
+        "image_VXhjK6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/t-p-img2-2.png",
+            "position_x": 0,
+            "position_y": 4
+          }
+        },
+        "image_yjRFGq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/t-p-img2-3.png",
+            "position_x": 0,
+            "position_y": 4
+          }
+        }
+      },
+      "block_order": [
+        "content_fa3zCD",
+        "image_CfetPj",
+        "image_VXhjK6",
+        "image_yjRFGq"
+      ],
+      "settings": {
+        "subtitle": "ABOUT OUR BRAND",
+        "logo": "shopify://shop_images/model-logo-2.png",
+        "Hero_Background": "shopify://shop_images/d-top-b-img.png",
+        "title": "Don’t make life too complicated, ride 1080!",
+        "content": "De 1080-turn (3x om je as draaien tijdens een sprong) staat bij de oprichters centraal als symbool voor alles waar het bij het free-riden om draait; sneeuw, plezier en een gevoel van volledige vrijheid!"
+      }
+    }
+  },
+  "order": ["main", "hero_landingpage_eTaXa3"]
 }

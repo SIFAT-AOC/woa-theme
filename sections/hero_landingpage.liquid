@@ -1,0 +1,198 @@
+<!-- Hero Section Start -->
+{% liquid
+    assign lp = section.settings
+    assign topTitle = lp.subtitle
+    assign moBGimg = lp.Hero_BackgroundM
+    assign dBGimg = lp.Hero_Background
+    assign logo = lp.logo
+    assign heroTitle = lp.title
+    assign heroContent = lp.content
+%}
+<style>
+    .heroContainer {
+        background-image: url({{ dBGimg | img_url: '1920x1080' }});
+    }
+    @media (max-width: 768px) {
+        .heroContainer {
+            background-image: url({{ moBGimg | img_url: '1920x1080' }});
+        }
+    }
+    </style>
+<section class="heroContainer">
+
+  <div class="gap-cu container-custom d-flex-custom flex-column-custom justify-center align-center">
+   
+    <div class="header-brand d-flex-custom flex-column-custom justify-center align-center">
+      
+      {% if topTitle %}
+        <span>{{ topTitle }}</span>
+      {% endif %}
+      {% if logo %}
+        <img src="{{ logo | img_url: '300x300' }}" alt="Brand Logo" />
+      {% endif %}
+    </div>
+    
+    <div class="d-flex-custom woa-showImgBox">
+       
+      <div class="col-4-full header-section">
+        {% for block in section.blocks %}
+        {% if block.type == 'content' %}
+       
+          <h1>{{ block.settings.title }}</h1>
+      
+          <p>{{  block.settings.content }}</p>
+        {% endif %}
+        {% endfor %}
+      </div>
+      <div class="col-7-full">
+        <div class="show-product-img">
+            {% for block in section.blocks %}
+             
+                {% if block.type == 'image' %}
+                  {% if block.settings.image %}
+                    <style>
+                        .show-product-img .t-img-1 {
+                            left: {{ block.settings.position_x | default: 0 }}%;
+                            top: {{ block.settings.position_y | default: 0 }}%;
+                            height: 400px;
+                          }
+                        
+                          .show-product-img .t-img-2 {
+                            right: 10%;
+                            top: 0%;
+                            height: 200px;
+                            transform: translate(0%, 10%);
+                          }
+                          .show-product-img .t-img-3 {
+                            top: 18%;
+                            right: 10%;
+                            transform: translate(-10%, 18%);
+                            height: 250px;
+                          }
+                        </style>
+                    <img 
+                      src="{{ block.settings.image | img_url }}" 
+                      class="t-img-{{ forloop.index | minus: 1   }}" 
+                      alt="Product Image {{ forloop.index }}" 
+                      
+                    />
+                  {% endif %}
+                {% endif %}
+            {% endfor %}
+              
+        </div>
+      </div>
+      
+    </div>
+    <div class="h-bottom-content d-flex-custom flex-column-custom justify-center align-center">
+
+         
+        {% if heroTitle %}
+            <h1>{{ heroTitle }}</h1>
+          {% endif %}
+          {% if heroContent %}
+            <p>{{ heroContent }}</p>
+          {% endif %}
+    </div>
+  </div>
+</section>
+<!-- Hero Section End -->
+
+{% schema %}
+{
+  "name": "Hero Landing Page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Top Subtitle",
+      "default": "ABOUT OUR BRAND"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "Hero_Background",
+      "label": "Hero Background Desk"
+    },
+    {
+      "type": "image_picker",
+      "id": "Hero_BackgroundM",
+      "label": "Hero Background Mobile"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Het Nieuwe Tijdperk van Skiën en Snowboarden"
+    },
+    {
+      "type": "textarea",
+      "id": "content",
+      "label": "Content",
+      "default": "1080 is een in 21/22 nieuw opgericht Oostenrijks free-ride ski-board & outerwear merk. Bedacht en ontwikkeld in Sankt Johann in Tirol door een paar jeugdige free-skiërs en snowboard vrienden. In het hart van een aantal uitdagende jaren, toen de wereld worstelde met de gevolgen van de pandemie, werd een spark van innovatie ontbrand. Uit de tegenspoed ontstond een merk dat de ski- en snowboardindustrie voor altijd zou veranderen: 1080."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image Block",
+      "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "range",
+            "id": "position_x",
+            "label": "Vertical",
+            "min": 0,
+            "max": 100,
+            "unit": "%",
+            "step": 1,
+            "default": 0
+          },
+          {
+            "type": "range",
+            "id": "position_y",
+            "label": "Horizontal",
+            "min": 0,
+            "max": 100,
+            "unit": "%",
+            "step": 1,
+            "default": 0
+          }
+          
+      ]
+    },
+    {
+      "type": "content",
+      "name": "Content Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Block Title",
+          "default": "Het Nieuwe Tijdperk van Skiën en Snowboarden"
+        },
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Block Content",
+          "default": "Content for the block goes here."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Landing Page",
+      "category": "Hero"
+    }
+  ]
+}
+{% endschema %}
