@@ -14,7 +14,7 @@ This file can be re-written at any time.
 {% elsif collection %}
   {% assign content = collection %}
 
-{% elsif template == 'index' or template | starts_with: 'index.shogun-66f22f97561a4706163442f5' %}
+{% elsif template == 'index' or template %}
   {% assign content = pages['fuji-bar'] %}
 
   {% if template == 'index' %}
@@ -67,3 +67,14 @@ This file can be re-written at any time.
      {% endcapture %}
 {% endif %}
 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% elsif template == 'index' or template | starts_with: 'index.shogun-66f22f97561a4706163442f5'
+    %}"
+  to: "{% elsif template == 'index' or template %}"
+  position: 357..400
+{% endcomment %}
